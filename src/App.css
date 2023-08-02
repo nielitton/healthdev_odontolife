@@ -1,0 +1,15 @@
+#root {
+  max-width: 1280px;
+  min-width: 100vw;
+  padding: 0;
+  margin: 0;
+
+
+  --blue-color: #01A7CC;
+  --blue-color-transparent: rgba(1, 167, 204, 0.1);
+  --blue-color-most-transparent: rgba(1, 179, 219, 0.027);
+  --text-color-title: #505050;
+  --text-color-light: #909090;
+  --background-color: #fcfcfc;
+}
+
