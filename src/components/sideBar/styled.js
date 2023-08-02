@@ -16,6 +16,11 @@ export const SideBarStyled = styled.aside`
     isExpanded ? "290px" : NOT_EXPANDED_SIDEBAR_WIDTH};
   height: 100%;
   border-right: 1px solid var(--border-color);
+  .chat-container {
+    position: absolute;
+    bottom: 92px;
+    left: 16px;
+  }
   .title-nav {
     width: 80%;
     .tools-text {
@@ -78,7 +83,10 @@ export const ListOfItems = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  :hover {
+  .firstItem:hover {
+    background-color: var(--blue-color-most-transparent);
+  }
+  .another-item:hover {
     background-color: var(--border-color);
   }
 `;
@@ -94,13 +102,19 @@ export const NavItemStyle = styled.li`
   width: ${({ isExpanded }) => (isExpanded ? "248px" : "32px")};
   padding: 6px;
   border-radius: 2px;
-  background-color: ${({ firstItem}) => firstItem ? 'var(--blue-color-transparent)' : ''};
-  color: ${({ firstItem }) => firstItem ? 'var(--blue-color)' : ''};
+  background-color: ${({ firstItem }) =>
+    firstItem ? "var(--blue-color-transparent)" : ""};
+  color: ${({ firstItem }) =>
+    firstItem ? "var(--blue-color)" : "var(--text-color-light)"};
+  .icon {
+    cursor: default;
+    color: ${({ firstItem }) =>
+      firstItem ? "var(--blue-color)" : "var(--text-color-light)"};
+    font-size: 16px;
+  }
   .description-nav {
     position: absolute;
     left: 30px;
     top: 3px;
   }
 `;
-
-

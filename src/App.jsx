@@ -3,6 +3,7 @@ import { SideBar } from "../src/components/sideBar";
 import { FormTabs } from "./components/tabs";
 import { styled } from "styled-components";
 import { NOT_EXPANDED_SIDEBAR_WIDTH } from "./components/sideBar/styled";
+import { Header } from "./components/header";
 
 const AppContainer = styled.div`
   position: relative;
@@ -13,7 +14,8 @@ const AppContainer = styled.div`
 
 const MainContent = styled.div`
   display: flex;
-  width: calc(100% - ${NOT_EXPANDED_SIDEBAR_WIDTH} - 10px);
+  flex-direction: column;
+  width: calc(100% - ${NOT_EXPANDED_SIDEBAR_WIDTH});
 `;
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
     <AppContainer>
       <SideBar />
       <MainContent>
+        <Header />
         <FormTabs />
       </MainContent>
     </AppContainer>

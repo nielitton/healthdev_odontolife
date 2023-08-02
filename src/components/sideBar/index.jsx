@@ -3,10 +3,15 @@ import ProfileImage from "../../assets/ProfileImage.svg";
 import coolicon from "../../assets/coolicon.svg";
 import ellipse from "../../assets/ellipse.png";
 import ellipseLeft from "../../assets/ellipseLeft.png";
+import chat from "../../assets/chat.svg";
 import { PiHouseFill } from "react-icons/pi";
 import { FaRegAddressCard } from "react-icons/fa";
 import { BiBuildingHouse } from "react-icons/bi";
+import { MdOutlineNotificationsNone } from "react-icons/md";
+import { HiMiniArrowLongLeft } from "react-icons/hi2";
+import { BiHelpCircle } from "react-icons/bi";
 import { LuMonitor } from "react-icons/lu";
+import { GoGear } from "react-icons/go";
 import { Tooltip } from "../tooltip";
 import { useState } from "react";
 
@@ -70,46 +75,112 @@ const SideBar = () => {
 
       <ListOfItems>
         {isExpanded ? (
-          <NavItemStyle  isExpanded={isExpanded} firstItem={true}>
-              <PiHouseFill className="icon-selected"/>
-              <p className="description-nav">Inicio</p>
+          <NavItemStyle className="firstItem" isExpanded={isExpanded} firstItem={true}>
+            <PiHouseFill className="icon-selected" />
+            <p className="description-nav">Inicio</p>
           </NavItemStyle>
         ) : (
-          <NavItemStyle isExpanded={isExpanded}>
-            <PiHouseFill />
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Inicio">
+              <PiHouseFill className="icon" />
+            </Tooltip>
           </NavItemStyle>
         )}
         {isExpanded ? (
-          <NavItemStyle isExpanded={isExpanded}>
-              <FaRegAddressCard />
-              <p className="description-nav">Consultório</p>
-          </NavItemStyle>
-        ) : (
-          <NavItemStyle isExpanded={isExpanded}>
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
             <FaRegAddressCard />
+            <p className="description-nav">Consultório</p>
+          </NavItemStyle>
+        ) : (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Consultório">
+              <FaRegAddressCard className="icon" />
+            </Tooltip>
           </NavItemStyle>
         )}
         {isExpanded ? (
-          <NavItemStyle isExpanded={isExpanded}>
-              <BiBuildingHouse />
-              <p className="description-nav">Clinicas</p>
-          </NavItemStyle>
-        ) : (
-          <NavItemStyle isExpanded={isExpanded}>
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
             <BiBuildingHouse />
+            <p className="description-nav">Clinicas</p>
+          </NavItemStyle>
+        ) : (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Clinicas">
+              <BiBuildingHouse  className="icon" />
+            </Tooltip>
           </NavItemStyle>
         )}
         {isExpanded ? (
-          <NavItemStyle isExpanded={isExpanded}>
-              <LuMonitor />
-              <p className="description-nav">Painel de atendimento</p>
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <LuMonitor />
+            <p className="description-nav">Painel de atendimento</p>
           </NavItemStyle>
         ) : (
-          <NavItemStyle isExpanded={isExpanded}>
-            <LuMonitor />
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Central de atendimento">
+
+            <LuMonitor className="icon"/>
+            </Tooltip>
           </NavItemStyle>
         )}
       </ListOfItems>
+
+      <ListOfItems>
+      {isExpanded ? (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <MdOutlineNotificationsNone className="icon-selected" />
+            <p className="description-nav">Notificações</p>
+          </NavItemStyle>
+        ) : (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Central de ajuda">
+              <MdOutlineNotificationsNone className="icon" />
+            </Tooltip>
+          </NavItemStyle>
+        )}
+        {isExpanded ? (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <BiHelpCircle className="icon-selected" />
+            <p className="description-nav">Central de ajuda</p>
+          </NavItemStyle>
+        ) : (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Central de ajuda">
+              <BiHelpCircle className="icon" />
+            </Tooltip>
+          </NavItemStyle>
+        )}
+        {isExpanded ? (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <GoGear className="icon-selected" />
+            <p className="description-nav">Configurações</p>
+          </NavItemStyle>
+        ) : (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Configurações">
+              <GoGear className="icon" />
+            </Tooltip>
+          </NavItemStyle>
+        )}
+        {isExpanded ? (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Sair da conta">
+              <HiMiniArrowLongLeft className="icon icon-selected" />
+            </Tooltip>
+            <p className="description-nav">Sair</p>
+          </NavItemStyle>
+        ) : (
+          <NavItemStyle className="another-item" isExpanded={isExpanded}>
+            <Tooltip label="Sair">
+              <HiMiniArrowLongLeft className="icon" />
+            </Tooltip>
+          </NavItemStyle>
+        )}
+      </ListOfItems>
+
+      <div className="chat-container">
+        <img src={chat} alt="chat-image" />
+      </div>
     </SideBarStyled>
   );
 };
