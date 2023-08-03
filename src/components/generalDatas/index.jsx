@@ -1,13 +1,18 @@
-import { useForm } from "react-hook-form";
-import { Button, FormLineStyle, InputStyle } from "./style";
-import { useDropzone } from "react-dropzone";
 import ProfileImageUpload from "../../assets/profileImageUpload.png";
 import iconImageUpload from "../../assets/iconImageUpload.svg";
 
+import { useForm } from "react-hook-form";
+import { FormLineStyle, InputStyle } from "./style";
+import { useDropzone } from "react-dropzone";
+
 import { CustomSelect } from "../select";
+import { useState } from "react";
+import { ButtonsEditMode } from "../buttonsEditMode";
 
 const GeneralDatas = () => {
   const { getRootProps } = useDropzone();
+  const [editMode, setEditMode] = useState(false);
+
 
   const options = [
     { value: "Masculino", label: "Masculino" },
@@ -32,7 +37,7 @@ const GeneralDatas = () => {
             <p className="text-title">Informações pessoais</p>
             <p>Atualize sua foto e dados pessoais aqui</p>
           </div>
-          <Button>Editar</Button>
+          <ButtonsEditMode editMode={editMode} setEditMode={setEditMode}>Salvar</ButtonsEditMode>
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">Nome / Sobrenome</p>
@@ -42,7 +47,7 @@ const GeneralDatas = () => {
           <p className="title">Nascimento / Sexo</p>
           <div className="separated-inputs">
             <InputStyle {...register("born")} />
-            <CustomSelect />
+            <CustomSelect options={options} />
           </div>
         </FormLineStyle>
         <FormLineStyle>
@@ -52,7 +57,7 @@ const GeneralDatas = () => {
           </div>
           <div className="profile-image-upload">
             <img src={ProfileImageUpload} alt="" />
-            <div { ...getRootProps() } className="container-upload-image">
+            <div {...getRootProps()} className="container-upload-image">
               <img
                 src={iconImageUpload}
                 className="upload-icon"
@@ -69,15 +74,15 @@ const GeneralDatas = () => {
           <p className="title">Nascimento / Sexo</p>
           <div className="separated-inputs">
             <InputStyle type="email" {...register("born")} />
-            <InputStyle type="number" {...register('phone')}/>
+            <InputStyle type="number" {...register("phone")} />
           </div>
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">RG / CPF / CNS</p>
           <div className="separated-inputs">
-            <InputStyle type="number"  {...register("rg")} />
-            <InputStyle type="number" {...register('cpf')}/>
-            <InputStyle type="number" {...register('cns')}/>
+            <InputStyle type="number" {...register("rg")} />
+            <InputStyle type="number" {...register("cpf")} />
+            <InputStyle type="number" {...register("cns")} />
           </div>
         </FormLineStyle>
       </form>

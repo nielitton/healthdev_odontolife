@@ -1,10 +1,20 @@
-import { SwitchRootStyle, SwitchThumbStyle } from "./style";
+import { useState } from "react";
+import {
+  SwitchContainerStyle,
+  SwitchRootStyle,
+  SwitchThumbStyle,
+} from "./style";
 
 const Switch = () => {
+  const [isChecked, setIsChecked] = useState(true);
+
   return (
-    <SwitchRootStyle>
-      <SwitchThumbStyle />
-    </SwitchRootStyle>
+    <SwitchContainerStyle>
+        <SwitchRootStyle onCheckedChange={() => setIsChecked(!isChecked)}>
+          <SwitchThumbStyle />
+        </SwitchRootStyle>
+      {isChecked ? <p>Inativo</p> : <p>Ativo</p>}
+    </SwitchContainerStyle>
   );
 };
 

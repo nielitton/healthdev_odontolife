@@ -1,20 +1,26 @@
-import { Button, FormLineStyle, InputStyle } from "../generalDatas/style";
+import { FormLineStyle, InputStyle } from "../generalDatas/style";
 import { useForm } from "react-hook-form";
 import { CustomSelect } from "../select";
+import { ButtonsEditMode } from "../buttonsEditMode";
+import { useState } from "react";
 
 const Adress = () => {
-
+    const [ editMode, setEditMode ] = useState(false)
     const { register, handleSubmit } = useForm()
+
+    const formSubmit = (data) => {
+        console.log(data)
+    }
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit(formSubmit)}>
         <FormLineStyle>
           <div>
             <p className="text-title">Informações pessoais</p>
             <p>Atualize sua foto e dados pessoais aqui</p>
           </div>
-          <Button>Editar</Button>
+          <ButtonsEditMode editMode={editMode} setEditMode={setEditMode}>Salvar</ButtonsEditMode>
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">Nascimento / Sexo</p>
@@ -24,7 +30,7 @@ const Adress = () => {
           </div>
         </FormLineStyle>
         <FormLineStyle>
-          <p className="title">RG / CPF / CNS</p>
+          <p className="title">Logradouro / Número / Bairro</p>
           <div className="separated-inputs">
             <InputStyle type="text"  {...register("street")} />
             <InputStyle type="number" {...register('home-number')}/>

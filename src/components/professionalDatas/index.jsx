@@ -1,21 +1,27 @@
-import Select from "react-select";
-import { Button, FormLineStyle, InputStyle } from "../generalDatas/style";
+import { FormLineStyle, InputStyle } from "../generalDatas/style";
 import { useForm } from "react-hook-form";
 import { Switch } from "../switch";
 import { CustomSelect } from "../select";
+import { ButtonsEditMode } from "../buttonsEditMode";
+import { useState } from "react";
 
 const ProfessionalDatas = () => {
   const { register, handleSubmit } = useForm();
+  const [ editMode, setEditMode ] = useState(false)
+
+  const handleFormSubmit = (data) => {
+    console.log(data)
+  }
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit(handleFormSubmit)}>
         <FormLineStyle>
           <div>
             <p className="text-title">Informações pessoais</p>
             <p>Atualize sua foto e dados pessoais aqui</p>
           </div>
-          <Button>Editar</Button>
+          <ButtonsEditMode editMode={editMode} setEditMode={setEditMode}>Salvar</ButtonsEditMode>
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">Conselho / Estado conselho</p>
@@ -30,7 +36,7 @@ const ProfessionalDatas = () => {
             <InputStyle
               className="just-one"
               type="text"
-              {...register("complement")}
+              {...register("adviceNumber")}
             />
           </div>
         </FormLineStyle>
@@ -38,7 +44,7 @@ const ProfessionalDatas = () => {
           <p className="title">Especialidade / RQE</p>
           <div className="separated-inputs">
             <CustomSelect />
-            <InputStyle type="number" />
+            <InputStyle type="number" { ...register('rqe') }/>
           </div>
         </FormLineStyle>
         <FormLineStyle>

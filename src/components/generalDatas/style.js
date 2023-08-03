@@ -1,18 +1,5 @@
 import { styled } from "styled-components";
 
-export const Button = styled.button`
-  width: 55px;
-  height: 35px;
-  border-radius: 4px;
-  background-color: var(--blue-color);
-  color: white;
-  font-size: 14px;
-  font-weight: 500;
-  &:hover {
-    background-color: var(--blue-color-bold);
-  }
-`;
-
 export const FormLineStyle = styled.div`
   border-top: 1px solid var(--border-color);
   padding: 10px 0px;
