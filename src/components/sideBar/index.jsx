@@ -81,7 +81,7 @@ const SideBar = () => {
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Inicio">
+            <Tooltip label="Inicio" side="right">
               <PiHouseFill className="icon" />
             </Tooltip>
           </NavItemStyle>
@@ -93,7 +93,7 @@ const SideBar = () => {
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Consultório">
+            <Tooltip label="Consultório" side="right">
               <FaRegAddressCard className="icon" />
             </Tooltip>
           </NavItemStyle>
@@ -105,7 +105,7 @@ const SideBar = () => {
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Clinicas">
+            <Tooltip label="Clinicas" side="right">
               <BiBuildingHouse  className="icon" />
             </Tooltip>
           </NavItemStyle>
@@ -117,7 +117,7 @@ const SideBar = () => {
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Central de atendimento">
+            <Tooltip label="Central de atendimento" side="right">
 
             <LuMonitor className="icon"/>
             </Tooltip>
@@ -133,7 +133,7 @@ const SideBar = () => {
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Central de ajuda">
+            <Tooltip label="Central de ajuda" side="right">
               <MdOutlineNotificationsNone className="icon" />
             </Tooltip>
           </NavItemStyle>
@@ -145,7 +145,7 @@ const SideBar = () => {
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Central de ajuda">
+            <Tooltip label="Central de ajuda" side="right">
               <BiHelpCircle className="icon" />
             </Tooltip>
           </NavItemStyle>
@@ -157,21 +157,21 @@ const SideBar = () => {
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Configurações">
+            <Tooltip label="Configurações" side="right">
               <GoGear className="icon" />
             </Tooltip>
           </NavItemStyle>
         )}
         {isExpanded ? (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Sair da conta">
+            <Tooltip label="Sair da conta" side="right">
               <HiMiniArrowLongLeft className="icon icon-selected" />
             </Tooltip>
             <p className="description-nav">Sair</p>
           </NavItemStyle>
         ) : (
           <NavItemStyle className="another-item" isExpanded={isExpanded}>
-            <Tooltip label="Sair">
+            <Tooltip label="Sair" side="right">
               <HiMiniArrowLongLeft className="icon" />
             </Tooltip>
           </NavItemStyle>

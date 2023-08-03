@@ -6,15 +6,16 @@ export const ToolTipContainer = styled.div`
   user-select: none;
   will-change: transform, opacity;
   .toolTipContent {
-    padding: 6px 8px 8px 8px;
+    height: 25px;
+    padding: 3px 4px 4px 4px;
     background-color: var(--tooltip-background);
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 2px;
     .toolTipArrow {
       fill: var(--tooltip-background);
-      width: 16px;
+      width: 13px;
       height: 8px;
       flex-shrink: 0;
     }

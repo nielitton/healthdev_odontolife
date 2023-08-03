@@ -10,9 +10,11 @@
 
   
   --blue-color: #01A7CC;
+  --blue-color-bold: #0089a8;
   --text-color-title: #505050;
   --text-color-light: #909090;
   --background-color: #fcfcfc;
+  --unchecked-select : rgba(216, 216, 216, 1);
   --border-color: #DFDFDF;
   --tooltip-background: rgba(51, 51, 51, 1);;
 }

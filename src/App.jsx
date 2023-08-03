@@ -1,9 +1,9 @@
 import "./App.css";
 import { SideBar } from "../src/components/sideBar";
-import { FormTabs } from "./components/tabs";
 import { styled } from "styled-components";
 import { NOT_EXPANDED_SIDEBAR_WIDTH } from "./components/sideBar/styled";
 import { Header } from "./components/header";
+import { TabsEnvolver } from "./components/tabsEnvolver";
 
 const AppContainer = styled.div`
   position: relative;
@@ -24,7 +24,7 @@ function App() {
       <SideBar />
       <MainContent>
         <Header />
-        <FormTabs />
+        <TabsEnvolver />
       </MainContent>
     </AppContainer>
   );

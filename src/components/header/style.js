@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const HeaderStyle = styled.header`
-  height: 90px;
+  height: 70px;
   background-color: white;
   width: 100%;
   border-bottom: 1px solid var(--border-color);
