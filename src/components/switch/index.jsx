@@ -5,15 +5,15 @@ import {
   SwitchThumbStyle,
 } from "./style";
 
-const Switch = () => {
+const Switch = ({ field }) => {
   const [isChecked, setIsChecked] = useState(true);
 
   return (
-    <SwitchContainerStyle>
-        <SwitchRootStyle onCheckedChange={() => setIsChecked(!isChecked)}>
+    <SwitchContainerStyle >
+        <SwitchRootStyle {...field} defaultChecked={true} onCheckedChange={() => setIsChecked(!isChecked)}>
           <SwitchThumbStyle />
         </SwitchRootStyle>
-      {isChecked ? <p>Inativo</p> : <p>Ativo</p>}
+      {isChecked ? <p>Ativo</p> : <p>Inativo</p>}
     </SwitchContainerStyle>
   );
 };

@@ -1,7 +1,7 @@
 import ProfileImageUpload from "../../assets/profileImageUpload.png";
 import iconImageUpload from "../../assets/iconImageUpload.svg";
 
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { FormLineStyle, InputStyle } from "./style";
 import { useDropzone } from "react-dropzone";
 
@@ -13,14 +13,13 @@ const GeneralDatas = () => {
   const { getRootProps } = useDropzone();
   const [editMode, setEditMode] = useState(false);
 
-
   const options = [
     { value: "Masculino", label: "Masculino" },
     { value: "Feminino", label: "Feminino" },
     { value: "Outro", label: "Outro" },
   ];
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, control } = useForm({
     mode: "all",
     criteriaMode: "all",
   });
@@ -37,7 +36,9 @@ const GeneralDatas = () => {
             <p className="text-title">Informações pessoais</p>
             <p>Atualize sua foto e dados pessoais aqui</p>
           </div>
-          <ButtonsEditMode editMode={editMode} setEditMode={setEditMode}>Salvar</ButtonsEditMode>
+          <ButtonsEditMode editMode={editMode} setEditMode={setEditMode}>
+            Salvar
+          </ButtonsEditMode>
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">Nome / Sobrenome</p>
@@ -47,7 +48,13 @@ const GeneralDatas = () => {
           <p className="title">Nascimento / Sexo</p>
           <div className="separated-inputs">
             <InputStyle {...register("born")} />
-            <CustomSelect options={options} />
+            <Controller
+              name="genre"
+              control={control}
+              render={({ field }) => (
+                <CustomSelect options={options} field={field} />
+              )}
+            />
           </div>
         </FormLineStyle>
         <FormLineStyle>

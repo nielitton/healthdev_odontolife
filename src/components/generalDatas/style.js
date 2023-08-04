@@ -19,6 +19,15 @@ export const FormLineStyle = styled.div`
     align-items: center;
     margin: 0 auto;
     gap: 25px;
+    .user-sinc {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 24px;
+      input { 
+        margin: 0;
+       }
+    }
   }
   .title {
     font-size: 13px;
