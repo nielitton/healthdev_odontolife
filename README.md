@@ -17,3 +17,6 @@ depois disso, vamos instalar as dependências. Você precisara ter o "yarn", na 
 ## yarn
 Assim ele irá baixar todas as dependências que são necessárias para fazer a aplicação rodar, Após a intalação, você prodera iniciar a aplicação, com o comando.
 ## yarn dev
+
+# Você podera encontrar o site hospedado na cercel
+# https://healthdev-odontolife-nielitton.vercel.app/

@@ -1,8 +1,8 @@
 import { ListOfItems, NavItemStyle, SideBarStyled } from "./styled";
-import ProfileImage from "../../assets/ProfileImage.svg";
+import ProfileImage from "../../assets/profileimage.svg";
 import coolicon from "../../assets/coolicon.svg";
 import ellipse from "../../assets/ellipse.png";
-import ellipseLeft from "../../assets/ellipseLeft.png";
+import ellipseLeft from "../../assets/ellipseleft.png";
 import chat from "../../assets/chat.svg";
 import { PiHouseFill } from "react-icons/pi";
 import { FaRegAddressCard } from "react-icons/fa";

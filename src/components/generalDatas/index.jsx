@@ -1,5 +1,5 @@
-import ProfileImageUpload from "../../assets/profileImageUpload.png";
-import iconImageUpload from "../../assets/iconImageUpload.svg";
+import ProfileImageUpload from "../../assets/profileimageupload.png";
+import iconImageUpload from "../../assets/iconimageupload.svg";
 
 import { useForm, Controller } from "react-hook-form";
 import { FormLineStyle, InputStyle } from "./style";
