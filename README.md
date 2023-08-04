@@ -1,8 +1,19 @@
-# React + Vite
+# Odontolife
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Como iniciar
+Este é um aplicativo para atualização de perfil dentro da plataforma da Odontolife
 
-Currently, two official plugins are available:
+para poder inicialo, você deve primeiro clonar este repositório, clicando no botão "code" do repositório você podera ver a chave SSH deste projeto e copial-la. Se achar melhor, aqui está a chave para voê poder clona-lo em sua maquina --> git@github.com:nielitton/healthdev_odontolife.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para poder clona-lo você deve ter o git na sua maquina.
+
+na sua linha de comandos você pode digitar o comando.
+## git clone git@github.com:nielitton/healthdev_odontolife.git
+Assim irá clonar o repositório na sua pasta atual
+
+logo em seguida você deve entra na pasta do repositório
+## cd healthdev_odontolife
+depois disso, vamos instalar as dependências. Você precisara ter o "yarn", na sua maquina. Execute o comando no seu terminal.
+## yarn
+Assim ele irá baixar todas as dependências que são necessárias para fazer a aplicação rodar, Após a intalação, você prodera iniciar a aplicação, com o comando.
+## yarn dev
