@@ -3,15 +3,51 @@ import { Controller, useForm } from "react-hook-form";
 import { Switch } from "../switch";
 import { CustomSelect } from "../select";
 import { ButtonsEditMode } from "../buttonsEditMode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { api } from "../../api/api";
 
 const ProfessionalDatas = () => {
   const { register, handleSubmit, control } = useForm({
     defaultValues: {
       userActive: true,
-    }
+    },
   });
+
   const [editMode, setEditMode] = useState(false);
+
+  const [dataApi, setDataApi] = useState({
+    advice: "",
+    adviceState: "",
+    adviceNumber: "",
+    especialty: "",
+    rqe: "",
+    idUser: "",
+    isActive: true,
+  });
+
+  const getDoctor = async () => {
+    try {
+      await api
+        .get("/doctor/2918658e-3ba5-4ccc-9f13-6848fd45f314")
+        .then((response) => {
+          setDataApi({
+            advice: response.data.advice,
+            adviceState: response.data.adviceState,
+            adviceNumber: response.data.adviceNumber,
+            especialty: response.data.specialty,
+            rqe: response.data.rqe,
+            idUser: response.data.id,
+            isActive: true,
+          });
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getDoctor();
+  }, []);
 
   const optionsState = [{ value: "Ceará", label: "CE" }];
 
@@ -48,7 +84,7 @@ const ProfessionalDatas = () => {
         <FormLineStyle>
           <div>
             <p className="text-title">Informações pessoais</p>
-            <p>Atualize sua foto e dados pessoais aqui</p>
+            <p>Atualize seus dados profissionais aqui</p>
           </div>
           <ButtonsEditMode editMode={editMode} setEditMode={setEditMode}>
             Salvar
@@ -77,6 +113,7 @@ const ProfessionalDatas = () => {
           <p className="title">Número do conselho</p>
           <div className="separated-inputs">
             <InputStyle
+              value={dataApi.adviceNumber}
               className="just-one"
               type="text"
               {...register("adviceNumber")}
@@ -93,19 +130,19 @@ const ProfessionalDatas = () => {
                 <CustomSelect options={opstionsSpecialization} field={field} />
               )}
             />
-            <InputStyle type="number" {...register("rqe")} />
+            <InputStyle value={dataApi.adviceNumber} type="number" {...register("rqe")} />
           </div>
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">ID user / Sincronização MEMED</p>
           <div className="separated-inputs">
             <div className="user-sinc">
-              <InputStyle type="text" {...register("idUser")} />
-              <Controller 
+              <InputStyle value={dataApi.idUser} type="text" {...register("idUser")} />
+              <Controller
                 name="userActive"
                 control={control}
-                render={({ field }) => <Switch field={field}/>}
-              />              
+                render={({ field }) => <Switch field={field} />}
+              />
             </div>
           </div>
         </FormLineStyle>

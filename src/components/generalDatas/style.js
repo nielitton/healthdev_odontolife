@@ -91,6 +91,7 @@ export const FormLineStyle = styled.div`
 
 export const InputStyle = styled.input`
   width: 60%;
+  color: var(--text-color-light);
   height: 41px;
   border-radius: 4px;
   border: 1px solid #f1f1f1;

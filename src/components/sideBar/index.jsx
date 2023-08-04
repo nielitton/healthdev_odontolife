@@ -16,7 +16,7 @@ import { Tooltip } from "../tooltip";
 import { useState } from "react";
 
 const SideBar = () => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <SideBarStyled isExpanded={isExpanded}>

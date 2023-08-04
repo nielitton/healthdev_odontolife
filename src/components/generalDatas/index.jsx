@@ -6,12 +6,49 @@ import { FormLineStyle, InputStyle } from "./style";
 import { useDropzone } from "react-dropzone";
 
 import { CustomSelect } from "../select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ButtonsEditMode } from "../buttonsEditMode";
+import { api } from "../../api/api";
 
 const GeneralDatas = () => {
   const { getRootProps } = useDropzone();
   const [editMode, setEditMode] = useState(false);
+
+  const [dataApi, setDataApi] = useState({
+    name: "",
+    email: "",
+    phone: "(85) 99999-9999",
+    rg: "",
+    cpf: "",
+    cns: "",
+    born: "",
+    genre: "",
+  });
+
+  const getDoctor = async () => {
+    try {
+      await api
+        .get("/doctor/2918658e-3ba5-4ccc-9f13-6848fd45f314")
+        .then((response) => {
+          response.data;
+          setDataApi({
+            name: response.data.name,
+            email: response.data.email,
+            rg: response.data.rg,
+            cpf: response.data.cpf,
+            cns: response.data.cns,
+            born: response.data.born,
+            genre: response.data.genre,
+          })
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getDoctor();
+  }, []);
 
   const options = [
     { value: "Masculino", label: "Masculino" },
@@ -42,17 +79,19 @@ const GeneralDatas = () => {
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">Nome / Sobrenome</p>
-          <InputStyle {...register("fullName")} />
+          { editMode ? <InputStyle onChange={(e) => setDataApi({
+            name: e.target.value
+          })} {...register("fullName")}/> : <InputStyle value={dataApi.name} {...register("fullName")} />}
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">Nascimento / Sexo</p>
           <div className="separated-inputs">
-            <InputStyle {...register("born")} />
+            <InputStyle value={dataApi.born} {...register("born")} />
             <Controller
               name="genre"
               control={control}
               render={({ field }) => (
-                <CustomSelect options={options} field={field} />
+                <CustomSelect value={dataApi.genre} options={options} field={field} />
               )}
             />
           </div>
@@ -78,18 +117,18 @@ const GeneralDatas = () => {
           </div>
         </FormLineStyle>
         <FormLineStyle>
-          <p className="title">Nascimento / Sexo</p>
+          <p className="title">Email / Telefone</p>
           <div className="separated-inputs">
-            <InputStyle type="email" {...register("born")} />
-            <InputStyle type="number" {...register("phone")} />
+            <InputStyle value={dataApi.email}  type="email" {...register("born")} />
+            <InputStyle  value={dataApi.phone} type="number" {...register("phone")} />
           </div>
         </FormLineStyle>
         <FormLineStyle>
           <p className="title">RG / CPF / CNS</p>
           <div className="separated-inputs">
-            <InputStyle type="number" {...register("rg")} />
-            <InputStyle type="number" {...register("cpf")} />
-            <InputStyle type="number" {...register("cns")} />
+            <InputStyle value={dataApi.rg} type="number" {...register("rg")} />
+            <InputStyle value={dataApi.cpf} type="number" {...register("cpf")} />
+            <InputStyle value={dataApi.cns} type="number" {...register("cns")} />
           </div>
         </FormLineStyle>
       </form>

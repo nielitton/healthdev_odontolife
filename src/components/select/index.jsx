@@ -1,10 +1,10 @@
 import { useForm, Controller } from "react-hook-form";
 import { CustomSelectStyle } from "./style";
 
-const CustomSelect = ({ options, field }, props) => {
-  const { control } = useForm()  
-    return (
+const CustomSelect = ({ options, field, value }, props) => {
+  return (
     <CustomSelectStyle
+      value={value}
       {...props}
       className="select-input"
       options={options}
